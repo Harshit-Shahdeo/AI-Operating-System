@@ -1,0 +1,1 @@
+[{"id":1,"tool":"filesystem","action":"createDirectory","params":{"path":"HelloJava"}},{"id":2,"tool":"filesystem","action":"createFile","params":{"path":"HelloJava/Main.java","content":"public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}"}}]

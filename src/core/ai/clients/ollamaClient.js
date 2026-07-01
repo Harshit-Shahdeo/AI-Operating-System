@@ -1,3 +1,5 @@
+import fs from "fs/promises";
+
 class ollamaClient{
 
     constructor(baseUrl, model){
@@ -9,7 +11,8 @@ class ollamaClient{
         const requestBody={
             model:this.model,
             prompt,
-            stream:false
+            stream:false,
+    
         };
         const response = await fetch(`${this.baseUrl}/api/generate`, {
             method:"POST",
@@ -37,3 +40,5 @@ class ollamaClient{
    
 
 }
+
+export default ollamaClient;

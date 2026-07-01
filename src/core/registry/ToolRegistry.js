@@ -14,4 +14,11 @@ class ToolRegistry{
     has(name){
         return this.tools.has(name);
     }
+
+    describe() {
+    return [...this.tools.values()].map(tool => tool.describe());
 }
+
+    
+}
+ export default ToolRegistry;

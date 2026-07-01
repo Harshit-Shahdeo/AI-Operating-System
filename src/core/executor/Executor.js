@@ -1,13 +1,13 @@
 class Executor{
-    constructror(Dispatcher){
-        this.Dispatcher = Dispatcher;
+    constructor(dispatcher){
+        this.dispatcher = dispatcher;
     }
     async execute(plans){
         let results = [];
         for(const step of plans){
             const {tool, action, params} = step;
-            let result = await this.Dispatcher.dispatch(tool, action, params);
-        }  if(!result.success){
+            let result = await this.dispatcher.dispatch(tool, action, params);
+          if(!result.success){
             results.push(result);
 
             return{
@@ -16,7 +16,9 @@ class Executor{
                 results
             }
         }
+    
         results.push(result);
+    }
         return{
             success:true,
             completedSteps:results.length,
@@ -25,3 +27,4 @@ class Executor{
     } 
     
 }  
+export default Executor;
