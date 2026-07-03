@@ -1,9 +1,16 @@
 class Dispatcher{
-    constructor(registry){
+    constructor(registry, workspace){
         this.registry = registry;
+        this.workspace = workspace;
     }
 
+      
+   
+
     async dispatch(toolName, action, params){
+        const context ={
+        workspace:this.workspace
+      }
         try{
             const tool = this.registry.get(toolName);
             if(!tool){
@@ -13,7 +20,7 @@ class Dispatcher{
             if(typeof method !=="function"){
                 throw new Error(`Action ${action} not found on ${toolName}`);
             }
-            return await method(params);
+            return await method(params, context);
         }catch(error){
             return{
                 success:false,

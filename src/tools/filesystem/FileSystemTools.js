@@ -3,7 +3,8 @@ import createFile from "./actions/createFile.js";
 
 class FileSystemTool {
 
-    constructor() {
+    constructor(workspace) {
+        this.workspace = workspace;
         this.actions = {
             createDirectory,
             createFile,
